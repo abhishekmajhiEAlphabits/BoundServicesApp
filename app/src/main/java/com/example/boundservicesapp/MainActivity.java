@@ -12,6 +12,9 @@ import android.view.View;
 
 import com.example.boundservicesapp.databinding.ActivityMainBinding;
 
+/*
+* Bound Services demo
+* */
 public class MainActivity extends AppCompatActivity {
 
     private MyService mService;
@@ -22,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Intent serviceIntent;
 
-    private boolean mStopLoop;
+    //private boolean mStopLoop;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
 
         serviceIntent = new Intent(getApplicationContext(), MyService.class);
 
+        //start service button method
         binding.startServiceBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -41,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //stop service button method
         binding.stopServiceBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -48,6 +53,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+        //bind service button method
         binding.bindServiceBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -72,6 +79,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+        //unbind service button method
         binding.unbindServiceBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -80,6 +89,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+        //get random number button method
         binding.getRandomNumberBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

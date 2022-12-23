@@ -35,12 +35,15 @@ public class MyService extends Service {
         return mBinder;
     }
 
+    //onDestroy method of service calls stopRandomNumberGenerator() to stop generating number
     public void onDestroy() {
         super.onDestroy();
         stopRandomNumberGenerator();
         Log.i(TAG, "Service Destroyed");
     }
 
+    //new thread is created and service runs on it as generating random numbers is time taking task.
+    //UI Thread is allowed to do other ui and small tasks
     public int onStartCommand(Intent intent, int flags, int startId) {
         Log.i(TAG, "Service Started");
         mIsRandomGeneratorOn = true;
@@ -52,6 +55,8 @@ public class MyService extends Service {
         return START_STICKY;
     }
 
+
+    //random number generator method
     private void startRandomNumberGenerator() {
         while (mIsRandomGeneratorOn) {
             try {
@@ -67,6 +72,7 @@ public class MyService extends Service {
         }
     }
 
+    //stop number generator method
     private void stopRandomNumberGenerator() {
         mIsRandomGeneratorOn = false;
     }
